@@ -1,2 +1,2 @@
-# database-sql
+# database
 something about database
