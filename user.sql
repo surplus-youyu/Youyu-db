@@ -1,5 +1,5 @@
 create table user(
-  id int unsigned not null primary key,
+  uid int unsigned not null primary key,
   password varchar(40) not null, 
   real_name varchar(40) not null,
   nick_name varchar(40) not null,
