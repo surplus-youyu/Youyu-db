@@ -3,15 +3,20 @@ something about database
 ## 问卷格式
 ```
 {
-  "1": {
-    title: "...",
-    options: { // 输入题的话字段为空对象
-      "A": ".....",
-      ...
+  id: ...,
+  title: ...,
+  publisher_id: ...,
+  content: {
+    "1": {
+      title: "...",
+      type: "short answer" // 或者"choice", "multiple choice"
+      options: { // 输入题的话字段为空对象
+        "A": ".....",
+        ...
+      }
     },
-    inputs: "..."
-  },
-  "2": ...
+    "2": ...
+  }
 }
 ```
 ## 问卷答案格式
@@ -21,7 +26,7 @@ something about database
   answer: {
     "1": {
       options: [...],
-      inputs: "..."
+      input: "..."
     },
     "2": ...
   }
