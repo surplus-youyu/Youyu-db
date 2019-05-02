@@ -1,7 +1,7 @@
 # database
 something about database
 ## 问卷格式
-```json
+```
 {
     "id": 1,
     "title": "Survey",
