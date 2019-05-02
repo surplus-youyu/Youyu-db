@@ -27,12 +27,12 @@ something about database
 ```
 {
   uid: ...,
-  answer: {
-    "1": {
+  answer: [
+    {
       options: [...],
       input: "..."
     },
-    "2": ...
-  }
+    ...
+  ]
 }
 ```
