@@ -6,5 +6,5 @@ create table user(
   gender char(1) not null,
   balance float default 0.0,
   phone varchar(40) not null,
-  email varchar(40) not null
+  email varchar(40) not null unique
 )DEFAULT CHARSET=utf8mb4;
