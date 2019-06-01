@@ -1,18 +1,14 @@
-CREATE TABLE `swsad`.`task_recipient` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `task_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
-  `status` INT NOT NULL DEFAULT 0,
+CREATE TABLE `task_recipient` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `task_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `result_id` int(11) NOT NULL DEFAULT '-1',
+  `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  INDEX `task_id_fk_idx` (`task_id` ASC),
-  INDEX `user_id_fk_idx` (`user_id` ASC),
-  CONSTRAINT `task_id_fk`
-    FOREIGN KEY (`task_id`)
-    REFERENCES `swsad`.`task` (`tid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `user_id_fk`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `swsad`.`user` (`uid`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  KEY `task_id_fk_idx` (`task_id`),
+  KEY `user_id_fk_idx` (`user_id`),
+  KEY `result_id_idx` (`result_id`),
+  CONSTRAINT `result_id` FOREIGN KEY (`result_id`) REFERENCES `task_result` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `task_id_fk` FOREIGN KEY (`task_id`) REFERENCES `task` (`tid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
